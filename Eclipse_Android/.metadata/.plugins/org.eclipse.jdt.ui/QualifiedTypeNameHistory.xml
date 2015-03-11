@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.bit.mcnear1.eventhandlers.EventPracticeMain.TxtInputEvents"/>
-<fullyQualifiedTypeName name="android.view.View.OnKeyListener"/>
-<fullyQualifiedTypeName name="com.bit.mcnear1.eventhandlerst2.R.id"/>
-<fullyQualifiedTypeName name="com.bit.mcnear1.eventhandlerst2.UserNameMain.UserNameFieldEvents"/>
-<fullyQualifiedTypeName name="com.bit.mcnear1.eventhandlerst2.UserNameMain"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
-<fullyQualifiedTypeName name="android.view.KeyEvent"/>
-<fullyQualifiedTypeName name="android.widget.RadioGroup.OnCheckedChangeListener"/>
-<fullyQualifiedTypeName name="com.example.complexscreencontrols.ScreenControlsMain.RadioGroupHandler"/>
 <fullyQualifiedTypeName name="android.widget.Spinner"/>
-<fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
-<fullyQualifiedTypeName name="android.R"/>
-<fullyQualifiedTypeName name="android.R.layout"/>
 <fullyQualifiedTypeName name="com.example.complexscreencontrols.R.id"/>
 <fullyQualifiedTypeName name="com.example.complexscreencontrols.ScreenControlsMain.SubmitBtnHandler"/>
 <fullyQualifiedTypeName name="bit.mcnear1.multipleactivities.R.id"/>
@@ -24,7 +12,6 @@
 <fullyQualifiedTypeName name="com.bit.mcnear1.languagetrainer.SplashScreen.StartQuizBtnHandler"/>
 <fullyQualifiedTypeName name="com.bit.mcnear1.languagetrainer.SplashScreen"/>
 <fullyQualifiedTypeName name="com.bit.mcnear1.languagetrainer.Results"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="android.view.ViewGroup.LayoutParams"/>
 <fullyQualifiedTypeName name="java.util.List"/>
@@ -41,7 +28,6 @@
 <fullyQualifiedTypeName name="com.bit.mcnear1.languagetrainer.QuestionActivity"/>
 <fullyQualifiedTypeName name="com.bit.mcnear1.languagetrainer.Results.AgainBtnHandler"/>
 <fullyQualifiedTypeName name="com.bit.mcnear1.languagetrainer.R.layout"/>
-<fullyQualifiedTypeName name="android.widget.ImageView"/>
 <fullyQualifiedTypeName name="com.bit.mcnear1.languagetrainer.R.id"/>
 <fullyQualifiedTypeName name="android.content.DialogInterface.OnClickListener"/>
 <fullyQualifiedTypeName name="bit.mcnear1.datapassing.Main.ResultsBtnHandler"/>
@@ -49,15 +35,29 @@
 <fullyQualifiedTypeName name="bit.mcnear1.datapassing.R.id"/>
 <fullyQualifiedTypeName name="bit.mcnear1.datapassing.Main.SettingsBtnHandler"/>
 <fullyQualifiedTypeName name="bit.mcnear1.datapassing.Settings.MainBtnHandler"/>
-<fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="com.example.requestingdata.MainActivity"/>
 <fullyQualifiedTypeName name="com.example.requestingdata.ChangeColor"/>
 <fullyQualifiedTypeName name="com.example.requestingdata.MainActivity.ChangeTxtBtnHandler"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
-<fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="com.example.requestingdata.R.id"/>
 <fullyQualifiedTypeName name="com.example.requestingdata.R.color"/>
 <fullyQualifiedTypeName name="com.bit.mcnear1.languagetrainer.eGender"/>
+<fullyQualifiedTypeName name="android.widget.ImageView"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.content.res.Resources"/>
+<fullyQualifiedTypeName name="android.os.Bundle"/>
+<fullyQualifiedTypeName name="android.widget.ListView"/>
+<fullyQualifiedTypeName name="bit.mcnear1.hierarchicalactivitiesv2.R.id"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="bit.mcnear1.hierarchicalactivitiesv2.Child"/>
+<fullyQualifiedTypeName name="bit.mcnear1.hierarchicalactivitiesv2.R.drawable"/>
+<fullyQualifiedTypeName name="bit.mcnear1.hierarchicalactivitiesv2.Child.NavListClickHandler"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.layout"/>
+<fullyQualifiedTypeName name="bit.mcnear1.hierarchicalactivitiesv2.MainActivity"/>
 </qualifiedTypeNameHistroy>
