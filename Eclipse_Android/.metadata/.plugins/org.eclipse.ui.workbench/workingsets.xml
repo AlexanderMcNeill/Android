@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424079691207_7" label="Lab 1 Basics of ADT" name="Lab 1 Basics of ADT">
+<item elementID="=Test" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=RandomDogApp" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424308137629_12" label="Lab 2 Event Handlers" name="Lab 2 Event Handlers">
+<item elementID="=EventHandlers" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=EventHandlersT2" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424662618373_15" label="Lab 3 Complex Screen Controls" name="Lab 3 Complex Screen Controls">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/ComplexScreenControls" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425116570349_20" label="Lab 4 Language Trainer" name="Lab 4 Language Trainer">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/LanguageTrainer" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425264851985_22" label="Lab 5 Multiple Activities" name="Lab 5 Multiple Activities">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/MultipleActivities" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425520516804_30" label="Lab 6 Activities and Intents" name="Lab 6 Activities and Intents">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/DataPassing" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/RequestingData" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425528730993_32" label="Lab 6 Requestion Data" name="Lab 6 Requestion Data">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/DataPassing" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/RequestingData" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425889428613_35" label="Lab 7 Hierarchical Activities" name="Lab 7 Hierarchical Activities">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/HierarchicalActivities" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424069025397_0" label="Window Working Set" name="Aggregate for window 1424069025396"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424069554493_1" label="Window Working Set" name="Aggregate for window 1424069554493"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424069600876_2" label="Window Working Set" name="Aggregate for window 1424069600875"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424070106997_3" label="Window Working Set" name="Aggregate for window 1424070106997"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424070282745_4" label="Window Working Set" name="Aggregate for window 1424070282745"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424073048887_5" label="Window Working Set" name="Aggregate for window 1424073048887"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424079487024_6" label="Window Working Set" name="Aggregate for window 1424079487023"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424115529877_8" label="Window Working Set" name="Aggregate for window 1424115529877"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424156936020_9" label="Window Working Set" name="Aggregate for window 1424156936020"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424165718662_10" label="Window Working Set" name="Aggregate for window 1424165718662"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424307914523_11" label="Window Working Set" name="Aggregate for window 1424307914523"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424312937491_13" label="Window Working Set" name="Aggregate for window 1424312937491"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424662023865_14" label="Window Working Set" name="Aggregate for window 1424662023865"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424825919754_16" label="Window Working Set" name="Aggregate for window 1424825919754"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425107234987_17" label="Window Working Set" name="Aggregate for window 1425107234987"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425116479368_19" label="Window Working Set" name="Aggregate for window 1425116479368"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425261382319_21" label="Window Working Set" name="Aggregate for window 1425261382319"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425280440228_23" label="Window Working Set" name="Aggregate for window 1425280440228"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425324212156_24" label="Window Working Set" name="Aggregate for window 1425324212156"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425362336544_25" label="Window Working Set" name="Aggregate for window 1425362336544"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425414163295_26" label="Window Working Set" name="Aggregate for window 1425414163295"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425415315009_27" label="Window Working Set" name="Aggregate for window 1425415315009"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425443601977_28" label="Window Working Set" name="Aggregate for window 1425443601977"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425515303667_29" label="Window Working Set" name="Aggregate for window 1425515303667"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425528515975_30" label="Window Working Set" name="Aggregate for window 1425528515975"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425792360019_33" label="Window Working Set" name="Aggregate for window 1425792360019"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425888631682_34" label="Window Working Set" name="Aggregate for window 1425888631682"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1426046332089_36" label="Window Working Set" name="Aggregate for window 1426046332089"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1426046641319_37" label="Window Working Set" name="Aggregate for window 1426046641319"/>
+<mruList name="Lab 7 Hierarchical Activities"/>
+<mruList name="Lab 6 Activities and Intents"/>
+<mruList name="Lab 5 Multiple Activities"/>
+<mruList name="Lab 4 Language Trainer"/>
+<mruList name="Lab 2 Event Handlers"/>
+</workingSetManager>

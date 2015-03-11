@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="correctAnswer">#33CC33</color>
+    <color name="incorrectAnswer">#E64848</color>
+    <color name="unanswered">#C2D6D6</color>
+    <color name="masculine">#3399FF</color>
+    <color name="neutral">#000000</color>
+    <color name="feminine">#FF66FF</color>
+</resources>

@@ -1,0 +1,26 @@
+INDEX VERSION 1.126+/Users/alexmcneill/Documents/Course/Eclipse_Android/.metadata/.plugins/org.eclipse.jdt.core
+1654729505.index
+3514029347.index
+3106787881.index
+897374071.index
+1804778709.index
+3320874290.index
+1453421126.index
+726318029.index
+499141158.index
+4193158684.index
+3762234785.index
+1270315800.index
+2967557985.index
+6321161.index
+1685774668.index
+1707096675.index
+318786557.index
+1705594537.index
+3495142929.index
+1488965765.index
+1114065209.index
+633942665.index
+3703194086.index
+1740504400.index
+3013875361.index
