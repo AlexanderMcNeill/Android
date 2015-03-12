@@ -28,6 +28,9 @@
 <workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1425889428613_35" label="Lab 7 Hierarchical Activities" name="Lab 7 Hierarchical Activities">
 <item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/HierarchicalActivitiesv2" type="4"/>
 </workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1426123187001_41" label="Lab 8 Fragments" name="Lab 8 Fragments">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Fragments" type="4"/>
+</workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424069025397_0" label="Window Working Set" name="Aggregate for window 1424069025396"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424069554493_1" label="Window Working Set" name="Aggregate for window 1424069554493"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424069600876_2" label="Window Working Set" name="Aggregate for window 1424069600875"/>
@@ -59,9 +62,11 @@
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1426046641319_37" label="Window Working Set" name="Aggregate for window 1426046641319"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1426046868922_38" label="Window Working Set" name="Aggregate for window 1426046868922"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1426056779892_39" label="Window Working Set" name="Aggregate for window 1426056779892"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1426123023841_40" label="Window Working Set" name="Aggregate for window 1426123023841"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1426131261450_41" label="Window Working Set" name="Aggregate for window 1426131261450"/>
+<mruList name="Lab 8 Fragments"/>
 <mruList name="Lab 7 Hierarchical Activities"/>
 <mruList name="Lab 6 Activities and Intents"/>
 <mruList name="Lab 5 Multiple Activities"/>
 <mruList name="Lab 4 Language Trainer"/>
-<mruList name="Lab 2 Event Handlers"/>
 </workingSetManager>
