@@ -29,7 +29,7 @@
 			<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
 			<item value="500" key="DIALOG_HEIGHT"/>
 			<item value="267" key="DIALOG_Y_ORIGIN"/>
-			<item value="622" key="DIALOG_X_ORIGIN"/>
+			<item value="302" key="DIALOG_X_ORIGIN"/>
 		</section>
 	</section>
 	<section name="NewClassWizardPage">
