@@ -1,7 +1,0 @@
-package bit.mcnear1.fragments;
-
-import android.app.Fragment;
-
-public class ImageFragment extends Fragment {
-
-}

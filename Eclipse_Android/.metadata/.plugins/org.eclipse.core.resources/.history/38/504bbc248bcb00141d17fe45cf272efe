@@ -1,7 +1,0 @@
-package com.example.complexscreencontrols;
-
-import android.app.DialogFragment;
-
-public class ConfirmLessionsAlert extends DialogFragment {
-
-}

@@ -31,6 +31,12 @@
 <workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1426123187001_41" label="Lab 8 Fragments" name="Lab 8 Fragments">
 <item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Fragments" type="4"/>
 </workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1427504874644_47" label="Lab 8 Fragment" name="Lab 8 Fragment">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Fragments" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1427661638854_50" label="Lab 9 Custom Array Adapter" name="Lab 9 Custom Array Adapter">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mcnear1_custom_array_adapter" type="4"/>
+</workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424069025397_0" label="Window Working Set" name="Aggregate for window 1424069025396"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424069554493_1" label="Window Working Set" name="Aggregate for window 1424069554493"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424069600876_2" label="Window Working Set" name="Aggregate for window 1424069600875"/>
@@ -66,6 +72,10 @@
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1426131261450_41" label="Window Working Set" name="Aggregate for window 1426131261450"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1426143796137_43" label="Window Working Set" name="Aggregate for window 1426143796137"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1426475431007_44" label="Window Working Set" name="Aggregate for window 1426475431007"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1427332248951_45" label="Window Working Set" name="Aggregate for window 1427332248951"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1427504751774_46" label="Window Working Set" name="Aggregate for window 1427504751774"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1427660209081_48" label="Window Working Set" name="Aggregate for window 1427660209080"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1427661565596_49" label="Window Working Set" name="Aggregate for window 1427661565596"/>
 <mruList name="Lab 8 Fragments"/>
 <mruList name="Lab 7 Hierarchical Activities"/>
 <mruList name="Lab 6 Activities and Intents"/>
