@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+<typeInfo handle="=DataPassing/src&lt;bit.mcnear1.datapassing{Main.java[Main" modifiers="1" timestamp="1425523864000"/>
+<typeInfo handle="=HierarchicalActivitiesv2/\/Applications\/eclipse\/android-sdk-macosx\/platforms\/android-21\/android.jar&lt;android.widget(AdapterView$OnItemClickListener.class[OnItemClickListener" modifiers="1545" timestamp="1424071126000"/>
+<typeInfo handle="=Fragments/\/Applications\/eclipse\/android-sdk-macosx\/platforms\/android-21\/android.jar&lt;android.app(Fragment.class[Fragment" modifiers="33" timestamp="1424071126000"/>
+<typeInfo handle="=ComplexScreenControls/\/Applications\/eclipse\/android-sdk-macosx\/platforms\/android-21\/android.jar&lt;android.app(DialogFragment.class[DialogFragment" modifiers="33" timestamp="1424071126000"/>
+</typeInfoHistroy>
