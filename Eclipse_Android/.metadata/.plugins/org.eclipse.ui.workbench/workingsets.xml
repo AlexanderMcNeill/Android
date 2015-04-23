@@ -37,6 +37,12 @@
 <workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1427661638854_50" label="Lab 9 Custom Array Adapter" name="Lab 9 Custom Array Adapter">
 <item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mcnear1_custom_array_adapter" type="4"/>
 </workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1428126184828_54" label="Lab 10 JSON Files" name="Lab 10 JSON Files">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mcnear1_using_json_data" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1428141410904_55" label="Lab 11 Using Web Services" name="Lab 11 Using Web Services">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/mcnear1_using_web_services" type="4"/>
+</workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424069025397_0" label="Window Working Set" name="Aggregate for window 1424069025396"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424069554493_1" label="Window Working Set" name="Aggregate for window 1424069554493"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1424069600876_2" label="Window Working Set" name="Aggregate for window 1424069600875"/>
@@ -76,9 +82,18 @@
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1427504751774_46" label="Window Working Set" name="Aggregate for window 1427504751774"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1427660209081_48" label="Window Working Set" name="Aggregate for window 1427660209080"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1427661565596_49" label="Window Working Set" name="Aggregate for window 1427661565596"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1427944226633_51" label="Window Working Set" name="Aggregate for window 1427944226633"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1428125950958_52" label="Window Working Set" name="Aggregate for window 1428125950957"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1428133092406_54" label="Window Working Set" name="Aggregate for window 1428133092405"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1428277338150_56" label="Window Working Set" name="Aggregate for window 1428277338150"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1428661197609_57" label="Window Working Set" name="Aggregate for window 1428661197609"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1429084118262_58" label="Window Working Set" name="Aggregate for window 1429084118262"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1429504362417_59" label="Window Working Set" name="Aggregate for window 1429504362417"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1429567711616_60" label="Window Working Set" name="Aggregate for window 1429567711616"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1429569300773_61" label="Window Working Set" name="Aggregate for window 1429569300773"/>
+<mruList name="Lab 11 Using Web Services"/>
+<mruList name="Lab 10 JSON Files"/>
 <mruList name="Lab 8 Fragments"/>
 <mruList name="Lab 7 Hierarchical Activities"/>
 <mruList name="Lab 6 Activities and Intents"/>
-<mruList name="Lab 5 Multiple Activities"/>
-<mruList name="Lab 4 Language Trainer"/>
 </workingSetManager>
