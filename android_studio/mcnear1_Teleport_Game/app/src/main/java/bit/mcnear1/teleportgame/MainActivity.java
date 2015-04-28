@@ -1,5 +1,7 @@
 package bit.mcnear1.teleportgame;
 
+import android.app.Activity;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -23,7 +25,7 @@ import java.net.URL;
 import java.util.Random;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
     private final double MAXLATITUDE = 90;
     private final double MAXLONGITUDE = 180;
@@ -57,86 +59,51 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         public void onClick(View v) {
-            double temp = rGen.nextDouble();
-            temp *= MAXLATITUDE;
+            latitude = rGen.nextDouble();
+            latitude *= MAXLATITUDE;
 
-            if(rGen.nextBoolean())
+            if(rGen.nextInt(3) == 1)
             {
-                latitude = -temp;
+                latitude = -latitude;
             }
 
             txtLatitude.setText(String.valueOf(latitude));
 
-            temp = rGen.nextDouble();
-            temp *= MAXLONGITUDE;
+            longitude = rGen.nextDouble();
+            longitude *= MAXLONGITUDE;
 
-            if(rGen.nextBoolean())
+            if(rGen.nextInt(3) == 1)
             {
-                longitude = -temp;
+                longitude = -longitude;
             }
 
             txtLongitude.setText(String.valueOf(longitude));
 
+
+            String urlString = URLBASE + "lat=" + latitude + "&long=" + longitude + URLDATAFORMAT;
+
             GetGeoData getGeoData = new GetGeoData();
-            getGeoData.execute();
+            getGeoData.execute(urlString);
         }
     }
 
-    public class GetGeoData extends AsyncTask<Void, Void, String>
+    public class GetGeoData extends WebDataFetcher
     {
 
         @Override
-        protected String doInBackground(Void... params) {
-            String urlString = URLBASE + "lat=" + latitude + "&long=" + longitude + URLDATAFORMAT;
-            String output = null;
-
-            try {
-                URL urlObject = new URL(urlString);
-                HttpURLConnection connection = (HttpURLConnection)urlObject.openConnection();
-                connection.connect();
-
-                int responseCode = connection.getResponseCode();
-
-                if(responseCode == 200)
-                {
-                    InputStream is = connection.getInputStream();
-                    BufferedReader br = new BufferedReader(new InputStreamReader(is));
-
-                    StringBuilder sb = new StringBuilder();
-
-                    String line = "";
-
-                    while ((line = br.readLine()) != null)
-                    {
-                        sb.append(line);
-                    }
-
-                    output = sb.toString();
-                }
-
-            }catch (MalformedURLException ex)
-            {
-                ex.printStackTrace();
-            }
-            catch (IOException ex)
-            {
-                ex.printStackTrace();
-            }
-
-            return output;
-        }
-
-        @Override
-        protected void onPostExecute(String fetchedData)
+        protected void processData(byte[] fetchedData)
         {
             try{
-                JSONObject fetchedJson = new JSONObject(fetchedData);
+                String jsonString = new String(fetchedData);
+                JSONObject fetchedJson = new JSONObject(jsonString);
 
                 txtClosestCity.setText(fetchedJson.getString("geoplugin_place"));
-            }catch (JSONException ex)
+            }catch (Exception ex)
             {
-                ex.printStackTrace();
+                txtClosestCity.setText("Unable to find close city");
             }
         }
+
+
     }
 }
