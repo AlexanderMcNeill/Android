@@ -34,6 +34,7 @@ public class MainActivity extends Activity
         navigationList.setAdapter(navigationAdapter);
         navigationList.setOnItemClickListener(new NavigationListClickHandler());
         
+        
     }
 
     //====================================================================================

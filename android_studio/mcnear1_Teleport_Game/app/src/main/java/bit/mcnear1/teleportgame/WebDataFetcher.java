@@ -62,6 +62,7 @@ public class WebDataFetcher extends AsyncTask<String, Void, byte[]> {
     @Override
     protected void onPostExecute(byte[] fetchedData)
     {
+
         processData(fetchedData);
     }
 

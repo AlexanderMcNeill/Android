@@ -1,7 +1,12 @@
 package bit.mcnear1.teleportgame;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.BitmapFactory;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -27,19 +32,19 @@ import java.util.Random;
 
 public class MainActivity extends Activity {
 
-    private final double MAXLATITUDE = 90;
-    private final double MAXLONGITUDE = 180;
     private final String URLBASE = "http://www.geoplugin.net/extras/location.gp?";
     private final String URLDATAFORMAT = "&format=json";
+    private final long LOCATIONUPDATETIME = 10000;
+    private final float LOCATIONUPDATEDISTANCE = 4;
 
     private double latitude = 0;
     private double longitude = 0;
-    private Random rGen = new Random();
 
     private TextView txtLatitude;
     private TextView txtLongitude;
     private TextView txtClosestCity;
-    private Button btnTeleport;
+
+    protected LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,42 +54,41 @@ public class MainActivity extends Activity {
         txtLatitude = (TextView) findViewById(R.id.txtLatitude);
         txtLongitude = (TextView) findViewById(R.id.txtLongitude);
         txtClosestCity = (TextView) findViewById(R.id.txtClosestCity);
-        btnTeleport = (Button) findViewById(R.id.btnTeleport);
 
-        btnTeleport.setOnClickListener(new btnTeleportHandler());
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        Criteria locationCrit = new Criteria();
+
+        String provider = locationManager.getBestProvider(locationCrit, false);
+
+        locationManager.requestLocationUpdates(provider, LOCATIONUPDATETIME, LOCATIONUPDATEDISTANCE, new LocationUpdateHandler());
     }
 
-    public class btnTeleportHandler implements View.OnClickListener
+
+    public class LocationUpdateHandler implements LocationListener
     {
 
         @Override
-        public void onClick(View v) {
-            latitude = rGen.nextDouble();
-            latitude *= MAXLATITUDE;
-
-            if(rGen.nextInt(3) == 1)
-            {
-                latitude = -latitude;
-            }
+        public void onLocationChanged(Location location) {
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
 
             txtLatitude.setText(String.valueOf(latitude));
-
-            longitude = rGen.nextDouble();
-            longitude *= MAXLONGITUDE;
-
-            if(rGen.nextInt(3) == 1)
-            {
-                longitude = -longitude;
-            }
-
             txtLongitude.setText(String.valueOf(longitude));
-
 
             String urlString = URLBASE + "lat=" + latitude + "&long=" + longitude + URLDATAFORMAT;
 
             GetGeoData getGeoData = new GetGeoData();
             getGeoData.execute(urlString);
         }
+
+        @Override
+        public void onStatusChanged(String s, int i, Bundle bundle) {}
+
+        @Override
+        public void onProviderEnabled(String s) {}
+
+        @Override
+        public void onProviderDisabled(String s) {}
     }
 
     public class GetGeoData extends WebDataFetcher
