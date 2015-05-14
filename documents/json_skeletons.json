@@ -1,0 +1,26 @@
+{
+	"scrums":[
+				{
+					"teamName": "<Team Name>",
+					"number": 0,
+					"date": "<Date String>",
+					"comment": "<Comment String>",
+					"memberScrums":	[
+										{
+											"memberName": "<Member Name>",
+											"lastTime": "<Goals from last time string>",
+											"achievedGoals": "<Yes/No>",
+											"nextTime": "<Goals for next time string>"
+										},
+									],
+					"absentMembers":[
+										"<Member Name>"
+									],
+					"teamGoals":[
+									"<Goal String>",
+									"<Goal String>"
+								]
+					
+				}
+			]
+}
