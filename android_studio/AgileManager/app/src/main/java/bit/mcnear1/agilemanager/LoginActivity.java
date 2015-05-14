@@ -24,6 +24,8 @@ import java.util.List;
 
 public class LoginActivity extends Activity {
 
+    public static final String LOGIN_PREFERENCES = "AgileManagerApp";
+
     protected EditText txtUserName;
     protected EditText txtPassword;
     protected TextView lblLoginResult;
@@ -34,23 +36,37 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        sharedPrefs = getSharedPreferences("AgileManagerApp", Context.MODE_PRIVATE);
+        sharedPrefs = getSharedPreferences(LOGIN_PREFERENCES, Context.MODE_PRIVATE);
 
+        //Checking if the user is already logged in. If they are sending them to their dashboard
         if(sharedPrefs.getInt("userID", -1) != -1)
         {
             Intent dashboardIntent = new Intent(this, DashboardActivity.class);
             startActivity(dashboardIntent);
         }
 
-        linkXML();
+        //Method that sets up all the screen elements described in the xml
+        setupScreenElements();
 
     }
 
-    protected void linkXML()
+    //Overriding the back button to stop a user who has logged ou accidently going back in without logging in again
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    protected void setupScreenElements()
     {
+        //Linking elements to their objects
         txtUserName = (EditText)findViewById(R.id.txtUsername);
         txtPassword = (EditText)findViewById(R.id.txtPassword);
         lblLoginResult = (TextView)findViewById(R.id.lblResult);
+
+        //Setting onclick listeners of the login and create account buttons
         TextView lblCreateAccount = (TextView)findViewById(R.id.lblCreateAccount);
         lblCreateAccount.setOnClickListener(new LblCreateAccountHandler());
 
@@ -78,7 +94,8 @@ public class LoginActivity extends Activity {
 
         @Override
         public void onClick(View view) {
-
+            Intent createAccountIntent = new Intent(LoginActivity.this, CreateAccountActivity.class);
+            startActivity(createAccountIntent);
         }
     }
 

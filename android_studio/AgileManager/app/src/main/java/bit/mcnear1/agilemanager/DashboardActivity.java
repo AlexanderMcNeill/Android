@@ -3,6 +3,7 @@ package bit.mcnear1.agilemanager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,24 +27,13 @@ public class DashboardActivity extends ActionBarActivity {
         TextView lblFullName = (TextView)findViewById(R.id.lblFullname);
         lblFullName.setText(sharedPrefs.getString("firstName", "Unknown") + " " + sharedPrefs.getString("lastName", "Unknown"));
 
-        Button btnLogout = (Button)findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(new BtnLogoutHandler());
+        setupDrawer();
     }
 
-
-    public class BtnLogoutHandler implements View.OnClickListener
+    public void setupDrawer()
     {
-
-        @Override
-        public void onClick(View view) {
-            SharedPreferences.Editor editor = sharedPrefs.edit();
-            editor.remove("userID");
-            editor.remove("userName");
-            editor.remove("fullName");
-            editor.apply();
-
-            Intent loginIntent = new Intent(DashboardActivity.this, LoginActivity.class);
-            startActivity(loginIntent);
-        }
+        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById((R.id.fragment_navigation_drawer));
+        DrawerLayout drawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
+        drawerFragment.setup(R.id.fragment_navigation_drawer, drawerLayout);
     }
 }

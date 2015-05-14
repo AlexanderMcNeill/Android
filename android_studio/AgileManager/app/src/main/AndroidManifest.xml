@@ -22,6 +22,18 @@
             android:name=".DashboardActivity"
             android:label="@string/title_activity_dashboard" >
         </activity>
+        <activity
+            android:name=".CreateAccountActivity"
+            android:label="@string/title_activity_create_account" >
+        </activity>
+        <activity
+            android:name=".AddScrumActivity"
+            android:label="@string/title_activity_add_scrum" >
+        </activity>
+        <activity
+            android:name=".JoinScrumActivity"
+            android:label="@string/title_activity_join_scrum" >
+        </activity>
     </application>
 
 </manifest>
