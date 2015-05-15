@@ -1,6 +1,7 @@
 package bit.mcnear1.agilemanager;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CreateAccountActivity extends Activity {
+public class CreateAccountActivity extends ActionBarActivity {
 
     protected EditText txtUserName;
     protected EditText txtPassword;
@@ -76,13 +77,18 @@ public class CreateAccountActivity extends Activity {
                 String jsonString = new String(fetchedData);
                 JSONObject fetchedJson = new JSONObject(jsonString);
 
+                Toast toast;
+
                 if(fetchedJson.getInt("success") == 1) {
-                    Toast toast = Toast.makeText(CreateAccountActivity.this, fetchedJson.getString("message"), Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(CreateAccountActivity.this, fetchedJson.getString("message"), Toast.LENGTH_SHORT);
                     toast.show();
+
+                    Intent loginIntent = new Intent(CreateAccountActivity.this, LoginActivity.class);
+                    startActivity(loginIntent);
                 }
                 else
                 {
-                    Toast toast = Toast.makeText(CreateAccountActivity.this, fetchedJson.getString("error"), Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(CreateAccountActivity.this, fetchedJson.getString("error"), Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }

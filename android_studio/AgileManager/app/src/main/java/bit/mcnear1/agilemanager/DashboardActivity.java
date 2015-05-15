@@ -11,16 +11,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.support.v7.widget.Toolbar;
 
 public class DashboardActivity extends ActionBarActivity {
 
     protected SharedPreferences sharedPrefs;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        toolbar = (Toolbar)findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         sharedPrefs = getSharedPreferences("AgileManagerApp", Context.MODE_PRIVATE);
 
@@ -34,6 +40,6 @@ public class DashboardActivity extends ActionBarActivity {
     {
         NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById((R.id.fragment_navigation_drawer));
         DrawerLayout drawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
-        drawerFragment.setup(R.id.fragment_navigation_drawer, drawerLayout);
+        drawerFragment.setup(R.id.fragment_navigation_drawer,toolbar, drawerLayout);
     }
 }

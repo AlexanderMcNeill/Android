@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -22,13 +24,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends ActionBarActivity {
 
     public static final String LOGIN_PREFERENCES = "AgileManagerApp";
 
     protected EditText txtUserName;
     protected EditText txtPassword;
-    protected TextView lblLoginResult;
     protected SharedPreferences sharedPrefs;
 
     @Override
@@ -64,7 +65,6 @@ public class LoginActivity extends Activity {
         //Linking elements to their objects
         txtUserName = (EditText)findViewById(R.id.txtUsername);
         txtPassword = (EditText)findViewById(R.id.txtPassword);
-        lblLoginResult = (TextView)findViewById(R.id.lblResult);
 
         //Setting onclick listeners of the login and create account buttons
         TextView lblCreateAccount = (TextView)findViewById(R.id.lblCreateAccount);
@@ -114,8 +114,10 @@ public class LoginActivity extends Activity {
                 JSONObject fetchedJson = new JSONObject(jsonString);
 
                 if(fetchedJson.getInt("success") == 1) {
-                    lblLoginResult.setText("Logged in as " + fetchedJson.getString("firstName") + fetchedJson.getString("lastName"));
+                    String loginMessage = "Logged in as " + fetchedJson.getString("firstName") + fetchedJson.getString("lastName");
 
+                    Toast toast = Toast.makeText(LoginActivity.this, loginMessage, Toast.LENGTH_SHORT);
+                    toast.show();
 
                     SharedPreferences.Editor editor = sharedPrefs.edit();
                     editor.putInt("userID", fetchedJson.getInt("id"));
@@ -129,15 +131,15 @@ public class LoginActivity extends Activity {
                 }
                 else
                 {
-                    lblLoginResult.setText(fetchedJson.getString("error"));
+                    String errorMessage = fetchedJson.getString("error");
+                    Toast toast = Toast.makeText(LoginActivity.this, errorMessage, Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }catch (Exception ex)
             {
                 ex.printStackTrace();
-                lblLoginResult.setText("Unable to login");
-            }
-            finally {
-                lblLoginResult.setVisibility(TextView.VISIBLE);
+                Toast toast = Toast.makeText(LoginActivity.this, "Unable to login", Toast.LENGTH_SHORT);
+                toast.show();
             }
         }
     }

@@ -1,3 +1,9 @@
+/*
+The navigation drawer was made by following slide nerds tutorial.
+I added commenting and made the code more modular as i went through the tutorial
+https://www.youtube.com/user/slidenerd
+ */
+
 package bit.mcnear1.agilemanager;
 
 import android.app.Activity;
@@ -51,6 +57,7 @@ public class NavigationDrawerFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Getting whether the user has opened the drawer from the drawers shared prefs
         mUserLearnedDrawer = Boolean.valueOf(readFromPreferences(getActivity(), KEY_LEARNED_DRAWER, "false"));
 
         if(savedInstanceState != null)
@@ -71,14 +78,14 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
 
-    public void setup(int drawerID, DrawerLayout drawerLayout) {
+    public void setup(int drawerID, Toolbar toolbar, DrawerLayout drawerLayout) {
 
         containerView = getActivity().findViewById(drawerID);
         setupDrawerContent();
 
         mDrawerLayout = drawerLayout;
 
-        mDrawerToggle = new CustomDrawerToggle(getActivity(), drawerLayout, R.string.drawer_open, R.string.drawer_close);
+        mDrawerToggle = new CustomDrawerToggle(getActivity(), drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 

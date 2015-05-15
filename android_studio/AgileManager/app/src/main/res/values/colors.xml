@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#303F9F</color>
+    <color name="accentColor">#F44336</color>
+    <color name="toolbarTextColor">#FFFF</color>
+    <color name="bodyTextColor">#000000</color>
+    <color name="drawerArrowColor">#FFFF</color>
+</resources>
