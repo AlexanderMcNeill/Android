@@ -6,27 +6,20 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
-public class AddScrumActivity extends ActionBarActivity {
+public class AddScrumActivity extends NavigationActivity {
 
-    private Toolbar toolbar;
+    protected View page;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_scrum);
 
 
-        toolbar = (Toolbar)findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setupDrawer();
-    }
+        page = getLayoutInflater().inflate(R.layout.fragment_add_scrum, null);
+        pageContainer.addView(page);
 
-    public void setupDrawer()
-    {
-        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById((R.id.fragment_navigation_drawer));
-        DrawerLayout drawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
-        drawerFragment.setup(R.id.fragment_navigation_drawer, toolbar, drawerLayout);
     }
 }

@@ -33,9 +33,10 @@
             android:label="@string/title_activity_add_scrum" >
         </activity>
         <activity
-            android:name=".JoinScrumActivity"
-            android:label="@string/title_activity_join_scrum" >
+            android:name=".SearchScrumActivity"
+            android:label="@string/title_activity_search_scrum" >
         </activity>
+
     </application>
 
 </manifest>

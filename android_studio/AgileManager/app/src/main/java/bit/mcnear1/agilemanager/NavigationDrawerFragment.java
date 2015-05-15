@@ -68,7 +68,6 @@ public class NavigationDrawerFragment extends Fragment {
             mFromSavedInstanceState = true;
         }
 
-
     }
 
     @Override
@@ -204,7 +203,7 @@ public class NavigationDrawerFragment extends Fragment {
                     goToIntent = new Intent(getActivity(), AddScrumActivity.class);
                     break;
                 case "Search Scrum Meetings":
-                    goToIntent = new Intent(getActivity(), DashboardActivity.class);
+                    goToIntent = new Intent(getActivity(), SearchScrumActivity.class);
                     break;
                 default:
                     goToIntent = new Intent(getActivity(), getActivity().getClass());
