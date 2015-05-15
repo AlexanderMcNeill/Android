@@ -7,6 +7,8 @@ https://www.youtube.com/user/slidenerd
 package bit.mcnear1.agilemanager;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,6 +25,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -190,25 +193,39 @@ public class NavigationDrawerFragment extends Fragment {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             String[] navigationItems = containerView.getResources().getStringArray(R.array.nav_items);
-            Intent goToIntent;
+
+            android.app.Fragment newPage;
+            String pageTitle;
 
             switch (navigationItems[i])
             {
                 case "Dashboard":
-                    goToIntent = new Intent(getActivity(), DashboardActivity.class);
+                default:
+                    newPage = new DashboardFragment();
+                    pageTitle = navigationItems[i];
                     break;
                 case "Create Scrum Meeting":
-                    goToIntent = new Intent(getActivity(), AddScrumActivity.class);
+                    newPage = new CreateScrumFragment();
+                    pageTitle = navigationItems[i];
                     break;
                 case "Search Scrum Meetings":
-                    goToIntent = new Intent(getActivity(), DashboardActivity.class);
-                    break;
-                default:
-                    goToIntent = new Intent(getActivity(), getActivity().getClass());
+                    newPage = new DashboardFragment();
+                    pageTitle = navigationItems[i];
                     break;
             }
 
-            getActivity().startActivity(goToIntent);
+            FragmentManager fm = getActivity().getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            FrameLayout pageContainer = (FrameLayout)getActivity().findViewById(R.id.pageContainer);
+            pageContainer.removeAllViews();
+            ft.add(pageContainer.getId(), newPage);
+
+            int result = ft.commit();
+            if(result < 0)
+            {
+                getActivity().setTitle(pageTitle);
+            }
+            mDrawerLayout.closeDrawer(containerView);
         }
     }
 

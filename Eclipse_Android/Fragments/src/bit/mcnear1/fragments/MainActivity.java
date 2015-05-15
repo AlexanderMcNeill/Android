@@ -26,6 +26,8 @@ public class MainActivity extends Activity {
         btnImage.setOnClickListener(new ImageBtnHandler());
         
     }
+    
+    
 
     public class ImageBtnHandler implements OnClickListener
     {
