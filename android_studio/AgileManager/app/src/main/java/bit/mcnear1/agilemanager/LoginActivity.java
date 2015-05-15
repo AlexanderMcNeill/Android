@@ -42,7 +42,7 @@ public class LoginActivity extends ActionBarActivity {
         //Checking if the user is already logged in. If they are sending them to their dashboard
         if(sharedPrefs.getInt("userID", -1) != -1)
         {
-            Intent dashboardIntent = new Intent(this, MainActivity.class);
+            Intent dashboardIntent = new Intent(this, DashboardActivity.class);
             startActivity(dashboardIntent);
         }
 
@@ -126,7 +126,7 @@ public class LoginActivity extends ActionBarActivity {
                     editor.putString("lastName", fetchedJson.getString("lastName"));
                     editor.apply();
 
-                    Intent dashboardIntent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent dashboardIntent = new Intent(LoginActivity.this, DashboardActivity.class);
                     startActivity(dashboardIntent);
                 }
                 else

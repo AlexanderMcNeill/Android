@@ -193,39 +193,25 @@ public class NavigationDrawerFragment extends Fragment {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             String[] navigationItems = containerView.getResources().getStringArray(R.array.nav_items);
-
-            android.app.Fragment newPage;
-            String pageTitle;
+            Intent goToIntent;
 
             switch (navigationItems[i])
             {
                 case "Dashboard":
-                default:
-                    newPage = new DashboardFragment();
-                    pageTitle = navigationItems[i];
+                    goToIntent = new Intent(getActivity(), DashboardActivity.class);
                     break;
                 case "Create Scrum Meeting":
-                    newPage = new CreateScrumFragment();
-                    pageTitle = navigationItems[i];
+                    goToIntent = new Intent(getActivity(), AddScrumActivity.class);
                     break;
                 case "Search Scrum Meetings":
-                    newPage = new DashboardFragment();
-                    pageTitle = navigationItems[i];
+                    goToIntent = new Intent(getActivity(), DashboardActivity.class);
+                    break;
+                default:
+                    goToIntent = new Intent(getActivity(), getActivity().getClass());
                     break;
             }
 
-            FragmentManager fm = getActivity().getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            FrameLayout pageContainer = (FrameLayout)getActivity().findViewById(R.id.pageContainer);
-            pageContainer.removeAllViews();
-            ft.add(pageContainer.getId(), newPage);
-
-            int result = ft.commit();
-            if(result < 0)
-            {
-                getActivity().setTitle(pageTitle);
-            }
-            mDrawerLayout.closeDrawer(containerView);
+            getActivity().startActivity(goToIntent);
         }
     }
 
