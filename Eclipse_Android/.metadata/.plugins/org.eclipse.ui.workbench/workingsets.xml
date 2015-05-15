@@ -94,6 +94,7 @@
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1430356233801_62" label="Window Working Set" name="Aggregate for window 1430356233801"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1430356584729_63" label="Window Working Set" name="Aggregate for window 1430356584729"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1431609982465_64" label="Window Working Set" name="Aggregate for window 1431609982465"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1431658066622_65" label="Window Working Set" name="Aggregate for window 1431658066622"/>
 <mruList name="Lab 11 Using Web Services"/>
 <mruList name="Lab 10 JSON Files"/>
 <mruList name="Lab 8 Fragments"/>

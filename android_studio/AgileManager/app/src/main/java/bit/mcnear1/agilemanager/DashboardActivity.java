@@ -27,7 +27,6 @@ public class DashboardActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         sharedPrefs = getSharedPreferences("AgileManagerApp", Context.MODE_PRIVATE);
 
         TextView lblFullName = (TextView)findViewById(R.id.lblFullname);
