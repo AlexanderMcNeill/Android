@@ -20,21 +20,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DashboardActivity"
-            android:label="@string/title_activity_dashboard" >
-        </activity>
-        <activity
             android:name=".CreateAccountActivity"
             android:label="@string/title_activity_create_account"
             android:theme="@style/NotLoggedInTheme" >
-        </activity>
-        <activity
-            android:name=".AddScrumActivity"
-            android:label="@string/title_activity_add_scrum" >
-        </activity>
-        <activity
-            android:name=".SearchScrumActivity"
-            android:label="@string/title_activity_search_scrum" >
         </activity>
         <activity
             android:name=".MainActivity"
