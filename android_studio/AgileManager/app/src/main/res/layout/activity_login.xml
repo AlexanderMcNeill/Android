@@ -18,7 +18,8 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginTop="80dp"
-        android:textColor="@color/bodyTextColor" />
+        android:textColor="@color/bodyTextColor"
+        android:inputType="text" />
 
     <EditText
         android:layout_width="wrap_content"

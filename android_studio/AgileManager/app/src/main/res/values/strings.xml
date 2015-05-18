@@ -17,4 +17,6 @@
     <string name="title_activity_search_scrum">Search Scrums</string>
     <string name="title_activity_dashboard">Dashboard</string>
     <string name="title_activity_create_account">Create Account</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_dale_test">DaleTest</string>
 </resources>

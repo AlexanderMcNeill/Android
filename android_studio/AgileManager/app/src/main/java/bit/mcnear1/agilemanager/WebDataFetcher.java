@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class WebDataFetcher extends AsyncTask<String, Void, byte[]> {
 
-    protected List<NameValuePair> params;
+    protected List<NameValuePair> params = null;
 
     public WebDataFetcher(List<NameValuePair> params)
     {
@@ -107,12 +107,6 @@ public class WebDataFetcher extends AsyncTask<String, Void, byte[]> {
     @Override
     protected void onPostExecute(byte[] fetchedData)
     {
-
-        processData(fetchedData);
-    }
-
-    protected void processData(byte[] fetchedData)
-    {
-        //To be added by user
+        //To be added by child
     }
 }

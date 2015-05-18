@@ -42,8 +42,8 @@ public class LoginActivity extends ActionBarActivity {
         //Checking if the user is already logged in. If they are sending them to their dashboard
         if(sharedPrefs.getInt("userID", -1) != -1)
         {
-            Intent dashboardIntent = new Intent(this, DashboardActivity.class);
-            startActivity(dashboardIntent);
+            Intent mainApplicationIntent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(mainApplicationIntent);
         }
 
         //Method that sets up all the screen elements described in the xml
@@ -107,7 +107,7 @@ public class LoginActivity extends ActionBarActivity {
         }
 
         @Override
-        protected void processData(byte[] fetchedData)
+        protected void onPostExecute(byte[] fetchedData)
         {
             try{
                 String jsonString = new String(fetchedData);
@@ -126,8 +126,8 @@ public class LoginActivity extends ActionBarActivity {
                     editor.putString("lastName", fetchedJson.getString("lastName"));
                     editor.apply();
 
-                    Intent dashboardIntent = new Intent(LoginActivity.this, DashboardActivity.class);
-                    startActivity(dashboardIntent);
+                    Intent mainApplicationIntent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(mainApplicationIntent);
                 }
                 else
                 {

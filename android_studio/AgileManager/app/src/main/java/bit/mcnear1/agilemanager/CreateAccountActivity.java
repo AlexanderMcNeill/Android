@@ -71,7 +71,7 @@ public class CreateAccountActivity extends ActionBarActivity {
         }
 
         @Override
-        protected void processData(byte[] fetchedData)
+        protected void onPostExecute(byte[] fetchedData)
         {
             try{
                 String jsonString = new String(fetchedData);

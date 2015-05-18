@@ -192,25 +192,25 @@ public class NavigationDrawerFragment extends Fragment {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             String[] navigationItems = containerView.getResources().getStringArray(R.array.nav_items);
-            Intent goToIntent;
+            SwappablePage swappablePageActivity = (SwappablePage)getActivity();
 
             switch (navigationItems[i])
             {
                 case "Dashboard":
-                    goToIntent = new Intent(getActivity(), DashboardActivity.class);
+                    swappablePageActivity.updateCurrentPage(new DashboardFragment());
                     break;
                 case "Create Scrum Meeting":
-                    goToIntent = new Intent(getActivity(), AddScrumActivity.class);
+                    swappablePageActivity.updateCurrentPage(new AddScrumFragment());
                     break;
                 case "Search Scrum Meetings":
-                    goToIntent = new Intent(getActivity(), SearchScrumActivity.class);
+                    swappablePageActivity.updateCurrentPage(new SearchScrumFragment());
                     break;
                 default:
-                    goToIntent = new Intent(getActivity(), getActivity().getClass());
+                    swappablePageActivity.updateCurrentPage(new DashboardFragment());
                     break;
             }
 
-            getActivity().startActivity(goToIntent);
+            mDrawerLayout.closeDrawer(containerView);
         }
     }
 
