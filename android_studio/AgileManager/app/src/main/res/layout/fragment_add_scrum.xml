@@ -1,12 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_alignParentBottom="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="550dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Team:"
+        android:id="@+id/lblTeam"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerTeam"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/lblTeam"
+        android:layout_toEndOf="@+id/lblTeam"
+        android:layout_marginRight="25dp"
+        android:textAlignment="center" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Add Scrum"
-        android:id="@+id/textView2" />
-</LinearLayout>
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Goals:"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/lblTeam"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="10dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:id="@+id/listGoal"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:stackFromBottom="false"
+        android:fastScrollEnabled="false"
+        android:fastScrollAlwaysVisible="false"
+        android:drawSelectorOnTop="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Goal"
+        android:id="@+id/btnAddGoal"
+        android:layout_below="@+id/listGoal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Comment:"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/btnAddGoal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtScrumComment"
+            android:layout_below="@+id/textView5"
+            android:layout_alignLeft="@+id/textView5"
+            android:layout_alignStart="@+id/textView5"
+            android:layout_alignRight="@+id/btnAddGoal"
+            android:layout_alignEnd="@+id/btnAddGoal"
+            android:elegantTextHeight="false"
+            android:height="150dp"
+            android:hint="Add a comment about what you talked about in the meeting" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:id="@+id/btnAddScrum"
+            android:layout_below="@+id/txtScrumComment"
+            android:layout_alignLeft="@+id/txtScrumComment"
+            android:layout_alignStart="@+id/txtScrumComment"
+            android:layout_alignRight="@+id/txtScrumComment"
+            android:layout_alignEnd="@+id/txtScrumComment" />
+
+    </RelativeLayout>
+</ScrollView>
+</RelativeLayout>

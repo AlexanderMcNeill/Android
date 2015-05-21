@@ -1,14 +1,19 @@
 <resources>
     <string name="app_name">Agile Manager</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="app_preferences">AgileManagerApp</string>
+    <string name="add_goal_dialog">Enter new goal:</string>
     <array name="nav_items">
         <item>Dashboard</item>
         <item>Create Scrum Meeting</item>
         <item>Search Scrum Meetings</item>
+    </array>
+    <array name="scrum_options">
+        <item>Code</item>
+        <item>Document</item>
+        <item>Something Else</item>
     </array>
 
     <!-- Activity Titles -->
@@ -18,5 +23,4 @@
     <string name="title_activity_dashboard">Dashboard</string>
     <string name="title_activity_create_account">Create Account</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_dale_test">DaleTest</string>
 </resources>
