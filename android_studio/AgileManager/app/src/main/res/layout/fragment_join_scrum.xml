@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Goals:"
+        android:id="@+id/textView11"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:id="@+id/listGoal"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:stackFromBottom="false"
+        android:fastScrollEnabled="false"
+        android:fastScrollAlwaysVisible="false"
+        android:drawSelectorOnTop="false" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Goal"
+        android:id="@+id/btnAddGoal"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Comment:"
+        android:id="@+id/textView5"
+        android:textSize="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtConstraints"
+        android:elegantTextHeight="false"
+        android:height="150dp"
+        android:hint="Add a comment about the constraints you may face"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:id="@+id/btnJoinScrum"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp" />
+</LinearLayout>

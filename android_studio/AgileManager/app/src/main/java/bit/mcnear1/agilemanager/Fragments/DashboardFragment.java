@@ -27,6 +27,7 @@ import bit.mcnear1.agilemanager.Utilities.WebDataFetcher;
  * Created by alexmcneill on 18/05/15.
  */
 public class DashboardFragment extends Fragment {
+    public final static String URLBASE = "http://alexandermcneill.nz:443/members/?";
     protected LinearLayout recentScrumContainer;
     @Override
     public View onCreateView(LayoutInflater inflator, ViewGroup container, Bundle savedInstanceState)
@@ -40,15 +41,16 @@ public class DashboardFragment extends Fragment {
         recentScrumContainer = (LinearLayout)v.findViewById(R.id.recentScrumContainer);
 
         FetchRecentScrums fetchRecentScrums = new FetchRecentScrums(null);
-        fetchRecentScrums.execute("http://alexandermcneill.nz/mobileapi/userRecentScrums.php");
+        String url_string = URLBASE + "user_id=" + sharedPrefs.getInt("userID",-1);
+        fetchRecentScrums.execute(url_string);
         return v;
     }
 
-    public void addRecentScrum(Fragment newRecentScrum, JSONObject scrumData)
+    public void addRecentScrum(Fragment newRecentScrum, JSONObject teamData)
     {
         //Creating a bundle to give it the json data it needs
         Bundle bundle = new Bundle();
-        bundle.putString("scumJsonString", scrumData.toString());
+        bundle.putString("teamJsonString", teamData.toString());
 
         //Passing the data to the new fragment
         newRecentScrum.setArguments(bundle);
@@ -69,7 +71,7 @@ public class DashboardFragment extends Fragment {
     public class FetchRecentScrums extends WebDataFetcher
     {
 
-        public FetchRecentScrums(List<NameValuePair> params) {
+        public FetchRecentScrums(JSONObject params) {
             super(params);
         }
 
@@ -80,15 +82,18 @@ public class DashboardFragment extends Fragment {
                 String jsonString = new String(fetchedData);
                 JSONObject fetchedJson = new JSONObject(jsonString);
 
-                if(fetchedJson.getInt("success") == 1) {
+                JSONObject response_json = fetchedJson.getJSONObject("member_request_response");
+                if(response_json.getInt("response_code") == 0) {
+                    JSONObject userJson = fetchedJson.getJSONObject("user");
+                    JSONArray teams = userJson.getJSONArray("teams");
 
-                    JSONArray scrumMeetings = fetchedJson.getJSONArray("scrums");
-                    for(int i = 0; i < scrumMeetings.length(); i++)
+                    for(int i = 0; i < teams.length(); i++)
                     {
-
-                        //Creating a new fragment to hold recent scrum data
+                        JSONObject teamJson = teams.getJSONObject(i);
                         Fragment recentScrum = new RecentScrumFragment();
-                        addRecentScrum(recentScrum, scrumMeetings.getJSONObject(i));
+                        addRecentScrum(recentScrum, teamJson);
+
+
                     }
                 }
                 else

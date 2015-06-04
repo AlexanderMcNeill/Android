@@ -24,6 +24,8 @@ import bit.mcnear1.agilemanager.Utilities.WebDataFetcher;
 
 public class LoginActivity extends ActionBarActivity {
 
+    public final static String URLBASE = "http://alexandermcneill.nz:443/members/?";
+
     //Variables to link to the xml elements
     protected EditText txtUserName;
     protected EditText txtPassword;
@@ -84,13 +86,14 @@ public class LoginActivity extends ActionBarActivity {
         public void onClick(View view) {
 
             //Getting the info to send to the webservice ready
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("userName", txtUserName.getText().toString()));
-            params.add(new BasicNameValuePair("password", txtPassword.getText().toString()));
+            String urlString = URLBASE +
+                                "user_name=" +
+                                txtUserName.getText().toString()+
+                                "&password=" + txtPassword.getText();
 
-            //Creating
-            UserInfoFetcher userInfoFetcher = new UserInfoFetcher(params);
-            userInfoFetcher.execute("http://alexandermcneill.nz/mobileapi/login.php");
+            //Creating user info fetcher
+            UserInfoFetcher userInfoFetcher = new UserInfoFetcher();
+            userInfoFetcher.execute(urlString);
         }
     }
 
@@ -109,9 +112,9 @@ public class LoginActivity extends ActionBarActivity {
     //Class that will be used to fetch the users data from the webservice
     public class UserInfoFetcher extends WebDataFetcher
     {
-        public UserInfoFetcher(List<NameValuePair> params)
+        public UserInfoFetcher()
         {
-            super(params);
+            super(null);
         }
 
         @Override
@@ -121,21 +124,25 @@ public class LoginActivity extends ActionBarActivity {
                 String jsonString = new String(fetchedData);
                 JSONObject fetchedJson = new JSONObject(jsonString);
 
+                JSONObject response_json = fetchedJson.getJSONObject("member_request_response");
+
                 //Checking that there was a user matching their input credentials
-                if(fetchedJson.getInt("success") == 1) {
+                if(response_json.getInt("response_code") == 0) {
+
+                    JSONObject userJson = fetchedJson.getJSONObject("user");
 
                     //Informing the user they are logged in with a toast
-                    String loginMessage = "Logged in as " + fetchedJson.getString("firstName") + fetchedJson.getString("lastName");
+                    String loginMessage = "Logged in as " + userJson.getString("firstName") + userJson.getString("lastName");
 
                     Toast toast = Toast.makeText(LoginActivity.this, loginMessage, Toast.LENGTH_SHORT);
                     toast.show();
 
                     //Putting the users info into the apps preferences
                     SharedPreferences.Editor editor = sharedPrefs.edit();
-                    editor.putInt("userID", fetchedJson.getInt("id"));
-                    editor.putString("userName", txtUserName.getText().toString());
-                    editor.putString("firstName", fetchedJson.getString("firstName"));
-                    editor.putString("lastName", fetchedJson.getString("lastName"));
+                    editor.putInt("userID", userJson.getInt("id"));
+                    editor.putString("userName", userJson.getString("firstName"));
+                    editor.putString("firstName", userJson.getString("firstName"));
+                    editor.putString("lastName", userJson.getString("lastName"));
                     editor.apply();
 
                     //Opening the dashboard

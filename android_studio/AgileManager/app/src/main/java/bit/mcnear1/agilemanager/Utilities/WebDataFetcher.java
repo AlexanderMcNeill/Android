@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.view.View;
 
 import org.apache.http.NameValuePair;
+import org.json.JSONObject;
 
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -25,9 +26,9 @@ import java.util.List;
  */
 public class WebDataFetcher extends AsyncTask<String, Void, byte[]> {
 
-    protected List<NameValuePair> params = null;
+    protected JSONObject params = null;
 
-    public WebDataFetcher(List<NameValuePair> params)
+    public WebDataFetcher(JSONObject params)
     {
         this.params = params;
     }
@@ -45,10 +46,12 @@ public class WebDataFetcher extends AsyncTask<String, Void, byte[]> {
             if(params != null)
             {
                 connection.setRequestMethod("POST");
+                connection.setRequestProperty("Content-Type", "application/json");
 
                 OutputStream os = connection.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-                writer.write(getQuery(params));
+                String jsonString = params.toString();
+                writer.write(jsonString);
                 writer.flush();
                 writer.close();
             }
@@ -82,26 +85,6 @@ public class WebDataFetcher extends AsyncTask<String, Void, byte[]> {
         }
 
         return output;
-    }
-
-    private String getQuery(List<NameValuePair> params) throws UnsupportedEncodingException
-    {
-        StringBuilder result = new StringBuilder();
-        boolean first = true;
-
-        for (NameValuePair pair : params)
-        {
-            if (first)
-                first = false;
-            else
-                result.append("&");
-
-            result.append(URLEncoder.encode(pair.getName(), "UTF-8"));
-            result.append("=");
-            result.append(URLEncoder.encode(pair.getValue(), "UTF-8"));
-        }
-
-        return result.toString();
     }
 
     @Override

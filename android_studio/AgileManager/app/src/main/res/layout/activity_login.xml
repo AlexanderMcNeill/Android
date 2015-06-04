@@ -28,7 +28,7 @@
         android:ems="10"
         android:id="@+id/txtPassword"
         android:hint="Password"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/txtUsername"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -46,7 +46,7 @@
         android:layout_below="@+id/txtPassword"
         android:layout_alignLeft="@+id/txtPassword"
         android:layout_alignStart="@+id/txtPassword"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_alignRight="@+id/txtPassword"
         android:layout_alignEnd="@+id/txtPassword" />
 
@@ -56,7 +56,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Create Account"
         android:id="@+id/lblCreateAccount"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="50dp"
         android:textColor="#ff3c6fff"
         android:layout_below="@+id/btnLogin"
         android:layout_centerHorizontal="true" />

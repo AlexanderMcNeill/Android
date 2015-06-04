@@ -21,6 +21,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Date: "
+            android:id="@+id/lblDate"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Team Goals"
             android:id="@+id/lblTeamGoalsTitle"
             android:layout_marginTop="15dp" />
@@ -32,23 +38,6 @@
             android:text="-Goal One"
             android:id="@+id/lblTeamGoals"
             android:layout_marginLeft="80dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Your Goals"
-            android:id="@+id/lblUserGoalsTitle"
-            android:layout_marginTop="15dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="-Goal One"
-            android:id="@+id/lblUserGoals"
-            android:layout_marginLeft="80dp"
-            android:layout_marginBottom="20dp" />
 
     </LinearLayout>
 

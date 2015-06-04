@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -29,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bit.mcnear1.agilemanager.R;
+import bit.mcnear1.agilemanager.SwappablePage;
 import bit.mcnear1.agilemanager.Utilities.WebDataFetcher;
 
 /**
@@ -36,6 +38,8 @@ import bit.mcnear1.agilemanager.Utilities.WebDataFetcher;
  */
 public class AddScrumFragment extends Fragment {
 
+    public final static String USERINFOURLBASE = "http://alexandermcneill.nz:443/members/?";
+    public final static String ADDSCRUMURLBASE = "http://alexandermcneill.nz:443/scrums/";
     protected EditText txtComment;
     protected Spinner spinnerTeam;
     protected ListView listGoals;
@@ -84,11 +88,10 @@ public class AddScrumFragment extends Fragment {
 
         //Setting up spinner for holding team names
         spinnerTeam = (Spinner)v.findViewById(R.id.spinnerTeam);
-        List<NameValuePair> params = new ArrayList<NameValuePair>();
-        String userID = String.valueOf(sharedPrefs.getInt("userID", -1));
-        params.add(new BasicNameValuePair("userID", userID));
-        TeamFetch teamFetch = new TeamFetch(params);
-        teamFetch.execute("http://alexandermcneill.nz/mobileapi/getUserTeams.php");
+
+        TeamFetch teamFetch = new TeamFetch();
+        String urlString = USERINFOURLBASE + "user_id=" + sharedPrefs.getInt("userID",-1);
+        teamFetch.execute(urlString);
 
         //Setting up goal list view contain the list of goals
         listGoals = (ListView)v.findViewById(R.id.listGoal);
@@ -144,18 +147,33 @@ public class AddScrumFragment extends Fragment {
         @Override
         public void onClick(View view) {
 
+            JSONObject newScrumRequest = new JSONObject();
             int teamID = teamIds[spinnerTeam.getSelectedItemPosition()];
-            int userID = sharedPrefs.getInt("userID", -1);
-            String[] goals = null;
-            String comment = null;
+
+            try {
+                newScrumRequest.put("function", "add_scrum");
+                newScrumRequest.put("team_id", teamID);
+                newScrumRequest.put("comment", txtComment.getText().toString());
+
+                JSONArray goalsJsonArray = new JSONArray(goals);
+
+                newScrumRequest.put("goals", goalsJsonArray);
+
+                AddScrumRequest addTeamRequest = new AddScrumRequest(newScrumRequest);
+                addTeamRequest.execute(ADDSCRUMURLBASE);
+            }
+            catch (JSONException ex)
+            {
+                ex.printStackTrace();
+            }
         }
     }
 
     public class TeamFetch extends WebDataFetcher
     {
 
-        public TeamFetch(List<NameValuePair> params) {
-            super(params);
+        public TeamFetch() {
+            super(null);
         }
 
         @Override
@@ -165,17 +183,18 @@ public class AddScrumFragment extends Fragment {
             try {
                 JSONObject fetchedJson = new JSONObject(jsonString);
 
-                if(fetchedJson.getInt("success") == 1) {
-
-                    JSONArray teamJsonArray = fetchedJson.getJSONArray("teams");
+                JSONObject response_json = fetchedJson.getJSONObject("member_request_response");
+                if(response_json.getInt("response_code") == 0) {
+                    JSONObject userDataJson = fetchedJson.getJSONObject("user");
+                    JSONArray teamJsonArray = userDataJson.getJSONArray("teams");
 
                     teamNames = new String[teamJsonArray.length()];
                     teamIds = new int[teamJsonArray.length()];
 
                     for (int i = 0; i < teamJsonArray.length(); i++) {
                         JSONObject teamJson = teamJsonArray.getJSONObject(i);
-                        teamNames[i] = teamJson.getString("name");
-                        teamIds[i] = teamJson.getInt("id");
+                        teamNames[i] = teamJson.getString("team_name");
+                        teamIds[i] = teamJson.getInt("team_id");
                     }
 
                     ArrayAdapter<String> teamNameAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, teamNames);
@@ -191,16 +210,84 @@ public class AddScrumFragment extends Fragment {
         }
     }
 
-    public class AddTeamRequest extends WebDataFetcher
+    public class AddScrumRequest extends WebDataFetcher
     {
 
-        public AddTeamRequest(List<NameValuePair> params) {
+        public AddScrumRequest(JSONObject params) {
             super(params);
         }
 
         @Override
         protected void onPostExecute(byte[] fetchedData) {
+            try{
+                String jsonString = new String(fetchedData);
+                JSONObject fetchedJson = new JSONObject(jsonString);
+                final JSONObject response_json = fetchedJson.getJSONObject("add_scrum_response");
+                Toast toast;
 
+                if(response_json.getInt("response_code") == 0) {
+                    toast = Toast.makeText(getActivity(), response_json.getString("response_message"), Toast.LENGTH_SHORT);
+                    toast.show();
+                    final int newScrumID = fetchedJson.getInt("scrum_id");
+
+
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+
+                    alertDialogBuilder.setMessage("Would you like to join the new scrum?");
+
+                    alertDialogBuilder
+                            .setCancelable(false)
+                            .setPositiveButton("Yes",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog,int id) {
+                                            SwappablePage swappablePageActivity = (SwappablePage)getActivity();
+                                            JoinScrumFragment joinScrumFragment = new JoinScrumFragment();
+
+                                            //Creating a bundle to give it the scrums id
+                                            Bundle bundle = new Bundle();
+                                            bundle.putInt("scrum_id", newScrumID);
+
+                                            //Passing the data to the new fragment
+                                            joinScrumFragment.setArguments(bundle);
+
+                                            swappablePageActivity.updateCurrentPage(joinScrumFragment);
+                                        }
+                                    })
+                            .setNegativeButton("No",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog,int id) {
+                                            SwappablePage swappablePageActivity = (SwappablePage)getActivity();
+                                            ViewScrumFragment viewScrumFragment = new ViewScrumFragment();
+
+                                            //Creating a bundle to give it the scrums id
+                                            Bundle bundle = new Bundle();
+                                            bundle.putInt("scrum_id", newScrumID);
+
+                                            //Passing the data to the new fragment
+                                            viewScrumFragment.setArguments(bundle);
+
+                                            swappablePageActivity.updateCurrentPage(viewScrumFragment);
+                                        }
+                                    });
+
+                    // create alert dialog
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+
+                    // show it
+                    alertDialog.show();
+                }
+                else
+                {
+                    toast = Toast.makeText(getActivity(), response_json.getString("response_message"), Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            }
+            catch (JSONException ex)
+            {
+                ex.printStackTrace();
+                Toast toast = Toast.makeText(getActivity(), "Error fetching data", Toast.LENGTH_SHORT);
+                toast.show();
+            }
         }
     }
 

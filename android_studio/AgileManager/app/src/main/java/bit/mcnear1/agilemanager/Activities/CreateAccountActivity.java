@@ -3,6 +3,7 @@ package bit.mcnear1.agilemanager.Activities;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +23,7 @@ import bit.mcnear1.agilemanager.Utilities.WebDataFetcher;
 
 public class CreateAccountActivity extends ActionBarActivity {
 
+    public final static String URLBASE = "http://alexandermcneill.nz:443/members/";
     protected EditText txtUserName;
     protected EditText txtPassword;
     protected EditText txtFirstName;
@@ -51,20 +53,27 @@ public class CreateAccountActivity extends ActionBarActivity {
 
         @Override
         public void onClick(View view) {
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("userName", txtUserName.getText().toString()));
-            params.add(new BasicNameValuePair("password", txtPassword.getText().toString()));
-            params.add(new BasicNameValuePair("firstName", txtFirstName.getText().toString()));
-            params.add(new BasicNameValuePair("lastName", txtLastName.getText().toString()));
 
-            CreateAccountRequest createAccountRequest = new CreateAccountRequest(params);
-            createAccountRequest.execute("http://alexandermcneill.nz/mobileapi/addUser.php");
+            try {
+                JSONObject newUserRequest = new JSONObject();
+                newUserRequest.put("function", "add_user");
+                newUserRequest.put("first_name", txtFirstName.getText().toString());
+                newUserRequest.put("last_name", txtLastName.getText().toString());
+                newUserRequest.put("username", txtUserName.getText().toString());
+                newUserRequest.put("password", txtPassword.getText().toString());
+
+                CreateAccountRequest createAccountRequest = new CreateAccountRequest(newUserRequest);
+                createAccountRequest.execute(URLBASE);
+            }catch (JSONException ex)
+            {
+                ex.printStackTrace();
+            }
         }
     }
 
     public class CreateAccountRequest extends WebDataFetcher
     {
-        public CreateAccountRequest(List<NameValuePair> params)
+        public CreateAccountRequest(JSONObject params)
         {
             super(params);
         }
@@ -75,11 +84,11 @@ public class CreateAccountActivity extends ActionBarActivity {
             try{
                 String jsonString = new String(fetchedData);
                 JSONObject fetchedJson = new JSONObject(jsonString);
-
+                JSONObject response_json = fetchedJson.getJSONObject("new_user_response");
                 Toast toast;
 
-                if(fetchedJson.getInt("success") == 1) {
-                    toast = Toast.makeText(CreateAccountActivity.this, fetchedJson.getString("message"), Toast.LENGTH_SHORT);
+                if(response_json.getInt("response_code") == 0) {
+                    toast = Toast.makeText(CreateAccountActivity.this, response_json.getString("response_message"), Toast.LENGTH_SHORT);
                     toast.show();
 
                     Intent loginIntent = new Intent(CreateAccountActivity.this, LoginActivity.class);
@@ -87,7 +96,7 @@ public class CreateAccountActivity extends ActionBarActivity {
                 }
                 else
                 {
-                    toast = Toast.makeText(CreateAccountActivity.this, fetchedJson.getString("error"), Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(CreateAccountActivity.this, response_json.getString("response_message"), Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }

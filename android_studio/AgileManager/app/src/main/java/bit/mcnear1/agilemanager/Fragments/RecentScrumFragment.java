@@ -25,7 +25,7 @@ public class RecentScrumFragment extends Fragment {
 
     protected TextView mLblTeamName;
     protected LinearLayout mScrumDetailsContainer;
-    protected JSONObject mScrumJson;
+    protected JSONObject mTeamJson;
 
     @Override
     public View onCreateView(LayoutInflater inflator, ViewGroup container, Bundle savedInstanceState)
@@ -33,10 +33,10 @@ public class RecentScrumFragment extends Fragment {
         View v = inflator.inflate(R.layout.fragment_recent_scrum_item, container, false);
 
         Bundle args = getArguments();
-        String scrumJsonString = args.getString("scumJsonString");
+        String teamJsonString = args.getString("teamJsonString");
 
         try {
-            mScrumJson = new JSONObject(scrumJsonString);
+            mTeamJson = new JSONObject(teamJsonString);
 
             setupXMLElements(v);
         }
@@ -54,22 +54,25 @@ public class RecentScrumFragment extends Fragment {
         try {
             //Getting the team name label
             mLblTeamName = (TextView)v.findViewById(R.id.lblScrumHeader);
-            //Setting it to the team name from the xml
-            mLblTeamName.setText(mScrumJson.getString("teamName"));
+            //Setting it to the team name from the json
+            mLblTeamName.setText(mTeamJson.getString("team_name"));
             //Setting the onclick handler
             mLblTeamName.setOnClickListener(new ScrumTitleClickHandler());
-
             //Getting the scrum details container. Will be used to make it toggle on and off later
             mScrumDetailsContainer = (LinearLayout)v.findViewById(R.id.scrumInfoContainer);
 
-            //Filling that team goals and user goals labels with the data from the json object
-            TextView lblTeamGoals = (TextView)v.findViewById(R.id.lblTeamGoals);
-            String teamGoalsString = createGoalBulletPoints(mScrumJson.getJSONArray("teamGoals"));
-            lblTeamGoals.setText(teamGoalsString);
+            if(mTeamJson.has("most_recent_scrum"))
+            {
+                JSONObject scrumJson = mTeamJson.getJSONObject("most_recent_scrum");
 
-            TextView lblUserGoals = (TextView)v.findViewById(R.id.lblUserGoals);
-            String userGoalsString = createGoalBulletPoints(mScrumJson.getJSONArray("userGoals"));
-            lblUserGoals.setText(userGoalsString);
+                //Filling that team goals with the data from the json object
+                TextView lblTeamGoals = (TextView)v.findViewById(R.id.lblTeamGoals);
+                String teamGoalsString = createGoalBulletPoints(scrumJson.getJSONArray("goals"));
+                lblTeamGoals.setText(teamGoalsString);
+
+                TextView lblDate = (TextView)v.findViewById(R.id.lblDate);
+                lblDate.setText("Date: " + scrumJson.getString("date"));
+            }
         }
         catch (JSONException ex)
         {
@@ -87,11 +90,9 @@ public class RecentScrumFragment extends Fragment {
             //Looping through each of the goals in the json array
             for(int i = 0; i < goals.length(); i++)
             {
-
                     goalsStringBuilder.append("-");
                     goalsStringBuilder.append(goals.getString(i));
                     goalsStringBuilder.append("\n");
-
             }
 
         }
