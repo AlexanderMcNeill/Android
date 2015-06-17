@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorAccent">@color/accentColor</item>
+        <item name="android:textColorPrimary">@color/toolbarTextColor</item>
+        <item name="android:textColor">@color/bodyTextColor</item>
+    </style>
+
+    <style name="NotLoggedInTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorAccent">@color/accentColor</item>
+        <item name="android:textColorPrimary">@color/toolbarTextColor</item>
+        <item name="android:textColor">@color/bodyTextColor</item>
+    </style>
+
+</resources>

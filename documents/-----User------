@@ -1,0 +1,46 @@
+-----User------
+POST
+--Add User
+{
+	"function":"add_user",
+	"new_user_data":{
+						"first_name":"<First name string>",
+						"last_name":"<Last name string>",
+						"username":"<Username string>",
+						"password":"<Password string>"
+					}
+}
+--Join Team
+{
+	"function":"join_team",
+	"user_id":0,
+	"team_id":0
+}
+GET
+--Get User
+
+-----Scrum-----
+POST
+--Add Scrum
+{
+	"function":"add_scrum",
+	"team_id":1,
+	"comment":"I hope this works",
+	"goals":[
+				"Code",
+				"document",
+				"research"
+			]
+}
+--Join Scrum
+{
+	"function":"join_scrum",
+	"scrum_id":1,
+	"user_id":1,
+	"obstacles":"I hope this works",
+	"goals":[
+				"Code",
+				"document",
+				"research"
+			]
+}

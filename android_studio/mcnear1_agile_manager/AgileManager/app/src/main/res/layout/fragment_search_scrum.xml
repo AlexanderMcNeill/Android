@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/filterContainer"
+        android:background="#b6acacb4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="To be implemented"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filters"
+        android:id="@+id/btnShowFilters"
+        android:layout_gravity="center_horizontal" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listScrums"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>
